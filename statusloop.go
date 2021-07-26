@@ -24,7 +24,7 @@ func main() {
 		xproto.AtomString, 8, uint32(len(wmname)), []byte(wmname))
 
 	sigs := make(chan os.Signal, 1)
-	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
+	signal.Notify(sigs, syscall.SIGHUP, syscall.SIGINT, syscall.SIGTERM)
 
 	scanner := bufio.NewScanner(os.Stdin)
 	go func() {
